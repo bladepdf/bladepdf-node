@@ -1,0 +1,72 @@
+{
+  "name": "@bladepdf/node",
+  "version": "1.0.0",
+  "description": "Official server-side Node.js SDK for the BladePDF managed Chromium API.",
+  "keywords": [
+    "bladepdf",
+    "pdf",
+    "html-to-pdf",
+    "nodejs",
+    "typescript",
+    "chromium",
+    "api"
+  ],
+  "homepage": "https://bladepdf.com",
+  "bugs": {
+    "url": "https://github.com/bladepdf/bladepdf-node/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bladepdf/bladepdf-node.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run build",
+    "pack:check": "npm pack --dry-run",
+    "prepublishOnly": "npm run check"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.0",
+    "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "^4.0.0",
+    "eslint": "^10.0.0",
+    "eslint-config-prettier": "^10.0.0",
+    "prettier": "^3.8.0",
+    "tsup": "^8.5.0",
+    "typescript": "^6.0.0",
+    "typescript-eslint": "^8.59.0",
+    "vitest": "^4.0.0"
+  }
+}
